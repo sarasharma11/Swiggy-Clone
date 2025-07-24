@@ -1,0 +1,32 @@
+version: "3.7"
+
+# individual services in isolated containers
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - 5000:5000
+
+  frontend:
+    depends_on:
+      - backend
+      # add build arguments
+    build:
+      context: ./frontend
+    ports:
+      - 3000:3000
+
+  nginx:
+    image: nginx:latest
+    container_name: webserver
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/local.conf:/etc/nginx/nginx.conf
