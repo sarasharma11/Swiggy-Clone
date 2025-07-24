@@ -1,7 +1,7 @@
 # Swiggy-Clone
 
 A full-stack food ordering web app built with the **MERN** stack (MongoDB, Express.js, React, Node.js).  
-This is a Swiggy-inspired platform where vendors can list food items, and users can browse, order, and enjoy meals.  
+This is a Swiggy-inspired platform where vendors can list food items, and users can browse and order.  
 The app also supports **Docker** for easy deployment.
 
 ---
